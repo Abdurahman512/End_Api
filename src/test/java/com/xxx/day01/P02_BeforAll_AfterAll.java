@@ -1,5 +1,6 @@
 package com.xxx.day01;
 
+import com.xxx.utility.HrTestBase;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
