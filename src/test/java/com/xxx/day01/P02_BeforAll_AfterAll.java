@@ -7,6 +7,8 @@ import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.*;
 
 import static io.restassured.RestAssured.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class P02_BeforAll_AfterAll {
 
@@ -23,7 +25,7 @@ public class P02_BeforAll_AfterAll {
     @Test
     public void simpleTest () {
 
-        Response response = RestAssured.get("/regions");
+        Response response = get("/regions");
 
         response.prettyPrint();
         // -Headers
@@ -41,10 +43,10 @@ public class P02_BeforAll_AfterAll {
         System.out.println(response.headers().hasHeaderWithName("Date"));
 
         //Verify response has Date
-        Assertions.assertTrue(response.headers().hasHeaderWithName("Date"));
+        assertTrue(response.headers().hasHeaderWithName("Date"));
 
         // -Verify response body has Europe
-        Assertions.assertTrue(response.asString().contains("Europe"));
+        assertTrue(response.asString().contains("Europe"));
     }
 
     /*
@@ -73,12 +75,12 @@ public class P02_BeforAll_AfterAll {
         System.out.println("last_name = " + last_name);
 
         // -Verify status code is 200
-        Assertions.assertEquals(HttpStatus.SC_OK,response.statusCode());
+        assertEquals(HttpStatus.SC_OK,response.statusCode());
 
         // -Verify First Name is Steven
-        Assertions.assertEquals(first_name,response.path("first_name"));
+        assertEquals(first_name,response.path("first_name"));
 
         // -Verify content-type is application/json
-        Assertions.assertEquals(ContentType.JSON.toString(),response.contentType());
+        assertEquals(ContentType.JSON.toString(),response.contentType());
     }
 }
