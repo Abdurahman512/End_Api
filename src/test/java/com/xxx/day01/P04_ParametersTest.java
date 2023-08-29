@@ -83,4 +83,22 @@ public class P04_ParametersTest extends SpartanTestBase {
         List<String> allNames = response.path("content.name");
         System.out.println("allNames = " + allNames);
     }
+
+    @DisplayName("/GET/spartans/500")
+    @Test
+    public void negativeTest() {
+        Response response = given().log().uri().accept(ContentType.JSON)
+                .pathParam("id", 500)
+                .when()
+                .get("/spartans/{id}");
+
+        assertEquals(HttpStatus.SC_NOT_FOUND,response.statusCode());
+        assertEquals(ContentType.JSON.toString(),response.contentType());
+
+        System.out.println("response.path(\"error\") = " + response.path("error"));
+        assertEquals("Not Found",response.path("error"));
+
+        assertTrue(response.asString().contains("Not Found"));
+        System.out.println("response.asString() = " + response.asString());
+    }
 }
