@@ -35,6 +35,7 @@ public class P04_HamCrestMatcher extends HrTestBase {
                 .header("Date",notNullValue())
                 .body("items[0].region_name",is("Europe"))
                 .body("items.region_name",containsInRelativeOrder
-                        ("Europe", "Americas", "Asia", "Middle East and Africa"));
+                        ("Europe", "Americas", "Asia", "Middle East and Africa"))
+                .body("items.region_id",containsInRelativeOrder(1,2,3,4));
     }
 }
