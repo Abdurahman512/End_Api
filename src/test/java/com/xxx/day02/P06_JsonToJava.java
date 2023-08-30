@@ -57,7 +57,7 @@ public class P06_JsonToJava extends SpartanTestBase {
         System.out.println("id = " + id);
         System.out.println("name = " + name);
 
-        System.out.println("-----First Approach  --- JsonPath --------");
+        System.out.println("-----First Approach  --- Response.path() --------");
         JsonPath jsonPath = response.jsonPath();
         Map<Object, Object> spMap = jsonPath.getMap("");
 
