@@ -1,33 +1,16 @@
 package com.xxx.pojo;
 
+import io.cucumber.messages.internal.com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class Search {
 
+    @JsonProperty("content")
     private List<Spartan> content;
     private int totalElement;
 
-    public List<Spartan> getContent() {
-        return content;
-    }
 
-    public void setContent(List<Spartan> content) {
-        this.content = content;
-    }
-
-    public int getTotalElement() {
-        return totalElement;
-    }
-
-    public void setTotalElement(int totalElement) {
-        this.totalElement = totalElement;
-    }
-
-    @Override
-    public String toString() {
-        return "Search{" +
-                "content=" + content +
-                ", totalElement=" + totalElement +
-                '}';
-    }
 }

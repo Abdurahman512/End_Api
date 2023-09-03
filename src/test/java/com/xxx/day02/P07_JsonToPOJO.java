@@ -101,6 +101,7 @@ public class P07_JsonToPOJO extends SpartanTestBase {
         System.out.println("search.getTotalElement() = " + search.getTotalElement());
 
         List<Spartan> content = search.getContent();
+        System.out.println("content = " + content);
         System.out.println(search.getContent().size());
 
         // first spartan info
